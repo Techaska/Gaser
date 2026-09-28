@@ -1,6 +1,6 @@
 # 🚗 Gaser — Vehicle Service Center Management System
 
->Status: 🚧 In Development | Author: Akash | Tech Stack: Java, Spring Boot, PostgreSQL
+> Status: 🚧 In Development | Author: Akash | Tech Stack: Java, Spring Boot, PostgreSQL
 
 Gaser is a robust, layered backend application built to streamline and automate vehicle service center workflows—ranging from customer and vehicle registration to tracking service jobs, mechanics, and generating service records.
 
@@ -14,7 +14,7 @@ Customer ──> Vehicle ──> Service Center ──> Service Job ──> Mech
 
 ---
 
-## 🏛️ Architecture \& Tech Stack
+## 🏛️ Architecture & Tech Stack
 
 Gaser follows a strict **layered Spring Boot architecture**, ensuring clean separation of concerns and maintainability:
 
@@ -30,22 +30,21 @@ Gaser follows a strict **layered Spring Boot architecture**, ensuring clean sepa
         ↓
 [ PostgreSQL Database ]
 
- Core Technologies
+Core Technologies
 
-Technology	        Purpose
-
-Java	                Backend programming
-Spring Boot	        Application framework
-Spring Web	        REST API development
-Spring Data JPA	        Database interaction
-Hibernate	        ORM
-PostgreSQL	        Relational database
-Maven	                Build and dependency management
-Jakarta Validation	Request validation
-Lombok	R               educing Java boilerplate
-Postman	                API testing
-Git	                Version control
-GitHub	                Source-code management
+Technology         Purpose
+Java               Backend programming
+Spring Boot        Application framework
+Spring Web         REST API development
+Spring Data JPA    Database interaction
+Hibernate          ORM
+PostgreSQL         Relational database
+Maven              Build and dependency management
+Jakarta Validation Request validation
+Lombok             Reducing Java boilerplate
+Postman            API testing
+Git                Version control
+GitHub             Source-code management
 
 ---
 
@@ -102,6 +101,3 @@ Gaser
 ---
 
 Gaser serves as a practical, production-oriented project showcasing modern Java & Spring Boot backend engineering best practices.
-
-
-

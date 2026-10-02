@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,16 +29,15 @@ public class ServiceJob {
     @NotBlank(message = "Service reference is required")
     private String serviceReference;
 
-    @NotNull(message = "Customer is required")
-    private Long customerId;
-
+    @ManyToOne
     @NotNull(message = "Vehicle is required")
-    private Long vehicleId;
+    @JoinColumn(name = "vehicle_id", nullable = false)
+    private Vehicle vehicle;
 
+    @ManyToOne
     @NotNull(message = "Service center is required")
-    private Long serviceCenterId;
-
-    private Long mechanicId;
+    @JoinColumn(name = "service_center_id", nullable = false)
+    private ServiceCenter serviceCenter;
 
     private LocalDateTime receivedDateTime;
 

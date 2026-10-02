@@ -31,24 +31,24 @@ public class CustomerService {
                                 "Customer not found with id: " + id));
     }
 
+
     public Customer updateCustomer(Long id, Customer customer) {
 
         Customer existingCustomer =
-                customerRepository.findById(id).orElse(null);
+                customerRepository.findById(id).orElseThrow(() ->
+                        new ResourceNotFoundException("Customer not found with id : "+id));
+        existingCustomer.setCustomerName(customer.getCustomerName());
+        existingCustomer.setPhoneNumber(customer.getPhoneNumber());
+        existingCustomer.setEmail(customer.getEmail());
 
-        if (existingCustomer != null) {
+        return customerRepository.save(existingCustomer);
 
-            existingCustomer.setCustomerName(customer.getCustomerName());
-            existingCustomer.setPhoneNumber(customer.getPhoneNumber());
-            existingCustomer.setEmail(customer.getEmail());
-
-            return customerRepository.save(existingCustomer);
-        }
-
-        return null;
     }
 
     public void deleteCustomer(Long id) {
+        if (!customerRepository.existsById(id)){
+            throw new ResourceNotFoundException("Customer not found with id :" +id);
+        }
         customerRepository.deleteById(id);
     }
 }

@@ -17,9 +17,12 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    @PostMapping
-    public Vehicle addVehicle(@Valid @RequestBody Vehicle vehicle) {
-        return vehicleService.addVehicle(vehicle);
+    @PostMapping("/customer/{customerId}")
+    public Vehicle addVehicle(
+            @PathVariable Long customerId,
+            @Valid @RequestBody Vehicle vehicle) {
+
+        return vehicleService.addVehicle(customerId, vehicle);
     }
 
     @GetMapping
@@ -42,5 +45,12 @@ public class VehicleController {
     @DeleteMapping("/{id}")
     public void deleteVehicle(@PathVariable Long id) {
         vehicleService.deleteVehicle(id);
+    }
+
+    @GetMapping("/customer/{customerId}")
+    public List<Vehicle> getVehiclesByCustomerId(
+            @PathVariable Long customerId) {
+
+        return vehicleService.getVehiclesByCustomerId(customerId);
     }
 }

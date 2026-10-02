@@ -17,11 +17,16 @@ public class ServiceJobController {
         this.serviceJobService = serviceJobService;
     }
 
-    @PostMapping
+    @PostMapping("/vehicle/{vehicleId}/center/{serviceCenterId}")
     public ServiceJob addServiceJob(
+            @PathVariable Long vehicleId,
+            @PathVariable Long serviceCenterId,
             @Valid @RequestBody ServiceJob serviceJob) {
 
-        return serviceJobService.addServiceJob(serviceJob);
+        return serviceJobService.addServiceJob(
+                vehicleId,
+                serviceCenterId,
+                serviceJob);
     }
 
     @GetMapping
@@ -42,7 +47,8 @@ public class ServiceJobController {
             @Valid @RequestBody ServiceJob serviceJob) {
 
         return serviceJobService.updateServiceJob(
-                id, serviceJob);
+                id,
+                serviceJob);
     }
 
     @DeleteMapping("/{id}")
